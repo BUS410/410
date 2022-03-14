@@ -16,9 +16,9 @@ class Game:
 		pygame.init()
 		pygame.mixer.music.load(music_path)
 		pygame.mixer.music.play(-1)
-		self.resolution = resolution
 		self.window = pygame.display.set_mode(resolution,
 			pygame.FULLSCREEN if fullscreen else 0)
+		self.resolution = self.window.get_width(), self.window.get_height()
 		pygame.display.set_caption('410')
 		self.root = None
 		self.timer = pygame.time.Clock()
@@ -130,6 +130,6 @@ if __name__ == '__main__':
 	main({
 		'level': 'levels/2.lvl',
 		'music': 'music/Bloody Stream.mp3',
-		'resolution': [800, 480],
-		'fullscreen': False,
+		'resolution': [0, 0],
+		'fullscreen': True,
 		})
